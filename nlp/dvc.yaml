@@ -46,22 +46,35 @@ stages:
     - eval/live/metrics.json:
         cache: false
 plots:
-  - ROC:
-      template: simple
-      x: fpr
-      y:
-        eval/live/plots/sklearn/roc/train.json: tpr
-        eval/live/plots/sklearn/roc/test.json: tpr
-  - Confusion-Matrix:
-      template: confusion
-      x: actual
-      y:
-        eval/live/plots/sklearn/cm/train.json: predicted
-        eval/live/plots/sklearn/cm/test.json: predicted
-  - Precision-Recall:
-      template: simple
-      x: recall
-      y:
-        eval/prc/train.json: precision
-        eval/prc/test.json: precision
-  - eval/importance.png
+- ROC:
+    template: simple
+    x: fpr
+    y:
+      eval/live/plots/sklearn/roc/train.json: tpr
+      eval/live/plots/sklearn/roc/test.json: tpr
+- Confusion-Matrix:
+    template: confusion
+    x: actual
+    y:
+      eval/live/plots/sklearn/cm/train.json: predicted
+      eval/live/plots/sklearn/cm/test.json: predicted
+- Precision-Recall:
+    template: simple
+    x: recall
+    y:
+      eval/prc/train.json: precision
+      eval/prc/test.json: precision
+- eval/importance.png
+artifacts:
+  text-classification:
+    path: model.pkl
+    desc: This is a natural language processing (NLP) binary classifier problem of
+      predicting tags for a given StackOverflow question. For example, we want one
+      classifier which can predict a post that is about the R language by tagging
+      it R.
+    type: model
+    labels:
+    - nlp
+    - classification
+    - stackoverflow
+    - r-programming-language
