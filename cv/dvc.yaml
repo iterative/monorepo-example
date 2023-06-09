@@ -35,3 +35,12 @@ artifacts:
     type: model
     labels:
     - cv
+  pool-segmentation:
+    path: models/model.pkl
+    desc: "This is a Computer Vision (CV) project that solves the problem of segmenting
+      out swimming pools from satellite images.\n"
+    type: model
+    labels:
+    - cv
+    - segmentation
+    - satellite-images
